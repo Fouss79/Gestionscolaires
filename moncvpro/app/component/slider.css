@@ -1,0 +1,17 @@
+
+.slider-div {
+
+  height: 22rem;
+  width: 34rem;
+  background-size: 100% 100%;
+  
+  animation: slider 25s linear infinite;
+}
+
+@keyframes slider {
+  0%   { background-image: url('/slider/cv1.jpeg'); }
+  25%  { background-image: url('/slider/cv2.jpeg'); }
+  50%  { background-image: url('/slider/cv3.jpeg'); }
+  75%  { background-image: url('/slider/cv4.jpeg'); }
+  100% { background-image: url('/slider/cv5.jpeg'); }
+}
