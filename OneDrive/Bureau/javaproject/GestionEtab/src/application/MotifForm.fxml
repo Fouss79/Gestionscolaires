@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/22"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.MotifController">
+
+    <children>
+        <TableView fx:id="tableMotif" layoutX="20" layoutY="20" prefWidth="500" prefHeight="200">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="colNom" text="Nom" prefWidth="200"/>
+                <TableColumn fx:id="colType" text="Type" prefWidth="120"/>
+                <TableColumn fx:id="colStatut" text="Statut" prefWidth="120"/>
+                <TableColumn fx:id="colMensuel" text="Mensuel" />
+            </columns>
+        </TableView>
+
+        <TextField fx:id="txtNom" layoutX="20" layoutY="240" promptText="Nom Motif" prefWidth="150"/>
+        <ComboBox fx:id="comboType" layoutX="200" layoutY="240" prefWidth="150"/>
+        <ComboBox fx:id="comboStatut" layoutX="370" layoutY="240" prefWidth="150" promptText="Statut"/>
+        <CheckBox fx:id="chkMensuel" layoutX="550" layoutY="240" text="Paiement mensuel ?" />
+
+        <Button text="Ajouter" layoutX="20" layoutY="280" onAction="#ajouterMotif"/>
+        <Button text="Modifier" layoutX="100" layoutY="280" onAction="#modifierMotif"/>
+        <Button text="Supprimer" layoutX="200" layoutY="280" onAction="#supprimerMotif"/>
+    </children>
+</AnchorPane>

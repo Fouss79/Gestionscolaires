@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.AnneeScolaireController"
+            prefWidth="800" prefHeight="500">
+
+    <Label text="Gestion des Années Scolaires"
+           layoutX="20" layoutY="15"
+           style="-fx-font-size:18px; -fx-font-weight:bold;" />
+
+    <!-- ===== FORMULAIRE ===== -->
+
+    <Label text="Libellé :" layoutX="30" layoutY="60"/>
+    <TextField fx:id="txtLibelle" layoutX="150" layoutY="55" prefWidth="200"
+               promptText="2025-2026"/>
+
+    <Label text="Date début :" layoutX="30" layoutY="105"/>
+    <DatePicker fx:id="dpDebut" layoutX="150" layoutY="100"/>
+
+    <Label text="Date fin :" layoutX="30" layoutY="150"/>
+    <DatePicker fx:id="dpFin" layoutX="150" layoutY="145"/>
+
+    <Button text="Ajouter" layoutX="150" layoutY="190"
+            onAction="#ajouterAnnee"/>
+
+    <Button text="Activer l'année sélectionnée" layoutX="230" layoutY="190"
+            onAction="#activerAnnee"/>
+
+    <!-- ===== TABLE ===== -->
+
+    <TableView fx:id="table" layoutX="380" layoutY="60"
+               prefWidth="390" prefHeight="380">
+
+        <columns>
+            <TableColumn fx:id="colLibelle" text="Année" prefWidth="120"/>
+            <TableColumn fx:id="colDebut" text="Début" prefWidth="90"/>
+            <TableColumn fx:id="colFin" text="Fin" prefWidth="90"/>
+            <TableColumn fx:id="colActive" text="Active" prefWidth="70"/>
+        </columns>
+
+    </TableView>
+
+</AnchorPane>

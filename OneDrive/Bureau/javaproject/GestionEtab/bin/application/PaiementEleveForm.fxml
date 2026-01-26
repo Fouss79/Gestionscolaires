@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="657.0" prefWidth="1283.0" style="-fx-background-color: #f0f4de;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PaiementEleveController">
+
+<!-- Sélection Année scolaire -->
+<Label layoutX="409.0" layoutY="44.0" text="Année scolaire :" />
+<ComboBox fx:id="comboAnnee" layoutX="572.0" layoutY="39.0" onAction="#handleAnneeSelected" prefWidth="200" />
+
+
+    <!-- Sélection Classe -->
+    <Label layoutX="409.0" layoutY="84.0" text="Classe :" />
+    <ComboBox fx:id="comboClasse" layoutX="572.0" layoutY="79.0" onAction="#handleClasseSelected" prefWidth="200" />
+
+    <!-- Sélection Élève -->
+    <Label layoutX="409.0" layoutY="124.0" text="Élève :" />
+    <ComboBox fx:id="comboEleve" layoutX="572.0" layoutY="119.0" onAction="#handleEleveSelected" prefWidth="200" />
+
+    <!-- Matricule -->
+    <Label layoutX="409.0" layoutY="164.0" text="Matricule :" />
+    <TextField fx:id="txtMatricule" editable="false" layoutX="572.0" layoutY="159.0" prefWidth="200" />
+
+    <!-- Nom -->
+    <Label layoutX="409.0" layoutY="204.0" text="Nom :" />
+    <TextField fx:id="txtNom" editable="false" layoutX="572.0" layoutY="199.0" prefWidth="200" />
+
+    <!-- Prénom -->
+    <Label layoutX="409.0" layoutY="244.0" text="Prénom :" />
+    <TextField fx:id="txtPrenom" editable="false" layoutX="572.0" layoutY="239.0" prefWidth="200" />
+
+    <!-- Montant total -->
+    <Label layoutX="409.0" layoutY="284.0" text="Montant total :" />
+    <TextField fx:id="txtMontantTotal" layoutX="572.0" layoutY="279.0" prefWidth="200" />
+
+    <!-- Montant payé -->
+    <Label layoutX="409.0" layoutY="324.0" text="Montant payé :" />
+    <TextField fx:id="txtMontantPaye" layoutX="572.0" layoutY="319.0" prefWidth="200" />
+
+    <!-- Reste -->
+    <Label layoutX="409.0" layoutY="364.0" text="Reste :" />
+    <TextField fx:id="txtReste" editable="false" layoutX="572.0" layoutY="359.0" prefWidth="200" />
+
+    <!-- Motif -->
+    <Label layoutX="409.0" layoutY="404.0" text="Motif :" />
+    <ComboBox fx:id="comboMotif" layoutX="572.0" layoutY="399.0" onAction="#handleMotifSelected" prefWidth="200" />
+
+    <!-- Type -->
+    <Label layoutX="406.0" layoutY="441.0" text="Type :" />
+    <TextField fx:id="txtType" editable="false" layoutX="571.0" layoutY="438.0" prefWidth="200" />
+
+    <!-- Boutons -->
+    <Button layoutX="406.0" layoutY="484.0" onAction="#handleChargerPaiement" text="Charger Paiement" />
+    <Button layoutX="592.0" layoutY="482.0" onAction="#handleSavePaiement" text="Enregistrer Paiement" />
+    <Button layoutX="771.0" layoutY="480.0" onAction="#handleGenererRecu" text="Générer le reçu" />
+    <Button layoutX="927.0" layoutY="478.0" onAction="#handleGenererPDF" text="Générer PDF" />
+
+    <!-- Tableau des transactions -->
+    <Label layoutX="405.0" layoutY="524.0" style="-fx-font-weight: bold;" text="Historique des transactions" />
+    <TableView fx:id="tableTransactions" layoutX="403.0" layoutY="546.0" prefHeight="113.0" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="colDate" prefWidth="300" text="Date" />
+            <TableColumn fx:id="colMontant" prefWidth="300" text="Montant payé" />
+        </columns>
+    </TableView>
+
+   <Button fx:id="btnEleve1" layoutX="980.0" layoutY="64.0" onAction="#openEleve1" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #2C3E50;" text="ELEVES" textFill="#f4eeee" />
+      <Button fx:id="btnEnseignant" layoutX="1109.0" layoutY="64.0" onAction="#openEnseignants" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: gray;" text="ENSEIGNANTS" textFill="#f4eeee" />
+   <Pane layoutY="53.0" prefHeight="605.0" prefWidth="233.0" style="-fx-background-color: green;">
+      <children>
+         <Button layoutX="4.0" layoutY="140.0" onAction="#retourAccueil" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: green;" text="TABLEAU DE BORD" textFill="#f4ecec">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnClasse" layoutX="3.0" layoutY="191.0" onAction="#openClasse" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: green;" text="GESTION DES CLASSES" textFill="#fbf6f6">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnEleve" layoutX="4.0" layoutY="230.0" onAction="#openEleve" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: green;" text="GESTION DES ELEVES" textFill="#ebede8">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnMatiere" layoutX="4.0" layoutY="270.0" onAction="#openMatiere" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: green;" text="GESTION DES MATIERES" textFill="#efe6e6">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnNote" layoutX="4.0" layoutY="310.0" onAction="#openNote" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: green;" text="GESTION DES NOTES" textFill="#f6f0f0">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnEnseignant1" layoutX="4.0" layoutY="350.0" onAction="#openEnseignant" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: green;" text="GESTON DES PERSONNELS" textFill="#efe9e9">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnTransaction" layoutX="4.0" layoutY="390.0" onAction="#openTransaction" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2C3E50;" text="GESTION DES FINANCES" textFill="#ede6e6">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnBulletin" layoutX="4.0" layoutY="430.0" onAction="#openBulletin" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: green;" text="GESTION DES BULLETINS" textFill="#f4ecec">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnEmploidutemps" layoutX="4.0" layoutY="470.0" onAction="#openEmploidutemps" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: green;" text="EMPLOIS DES TEMPS" textFill="#efefef">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnComptabilite" layoutX="4.0" layoutY="510.0" onAction="#openComptabilite" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: green;" text="COMPTABILITE" textFill="#f4f3f3">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <FontAwesomeIcon fill="white" glyphName="UNIVERSITY" layoutX="14.0" layoutY="212.0" size="16" text="" />
+         <FontAwesomeIcon fill="#fdf4f4" glyphName="USER" layoutX="17.0" layoutY="250.0" size="16" />
+         <FontAwesomeIcon fill="#f2eded" glyphName="FILE_TEXT" layoutX="17.0" layoutY="330.0" size="16" />
+         <FontAwesomeIcon fill="#f4ecec" glyphName="BOOK" layoutX="16.0" layoutY="290.0" size="16" />
+         <FontAwesomeIcon fill="#f4ecec" glyphName="USERS" layoutX="14.0" layoutY="370.0" size="16" />
+         <FontAwesomeIcon fill="#ebeaea" glyphName="BANK" layoutX="13.0" layoutY="410.0" size="16" />
+         <FontAwesomeIcon fill="#efeaea" glyphName="FILE_TEXT" layoutX="15.0" layoutY="451.0" size="16" />
+         <FontAwesomeIcon fill="#fbf3f3" glyphName="CALENDAR" layoutX="15.0" layoutY="489.0" size="16" />
+         <FontAwesomeIcon fill="#ede9e9" glyphName="CALCULATOR" layoutX="16.0" layoutY="528.0" size="16" />
+         <FontAwesomeIcon fill="#fbf7f7" glyphName="TACHOMETER" layoutX="15.0" layoutY="160.0" size="16" />
+         <Text fill="#e9e4e4" layoutX="120.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADMIN" wrappingWidth="66.80340576171875">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font>
+         </Text>
+         <FontAwesomeIcon fill="#ede8d1" glyphName="USER" layoutX="27.0" layoutY="86.0" selectionFill="#dfe0d9" size="8em" text="" wrappingWidth="83.99999999999994" />
+      </children>
+   </Pane>
+   <ComboBox fx:id="cbMois" layoutX="780.0" layoutY="400.0" onAction="#handleMoisSelected" prefHeight="25.0" prefWidth="83.0" promptText="Mois" />
+   
+
+</AnchorPane>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.BulletinController"
+            prefWidth="900" prefHeight="650">
+
+    <!-- ====== FILTRES ====== -->
+
+    <!-- Année -->
+    <Label text="Année :" layoutX="20" layoutY="20"/>
+    <ComboBox fx:id="cbAnnee" layoutX="80" layoutY="16" prefWidth="180"/>
+
+    <!-- Classe -->
+    <Label text="Classe :" layoutX="280" layoutY="20"/>
+    <ComboBox fx:id="cbClasse" layoutX="350" layoutY="16" prefWidth="200"/>
+
+    <!-- Élève -->
+    <Label text="Élève :" layoutX="580" layoutY="20"/>
+    <ComboBox fx:id="cbEleve" layoutX="640" layoutY="16" prefWidth="230"/>
+
+    <!-- Période -->
+    <Label text="Période :" layoutX="20" layoutY="60"/>
+    <ComboBox fx:id="cbPeriode" layoutX="80" layoutY="56" prefWidth="180"/>
+
+    <!-- ====== TABLE DES NOTES ====== -->
+
+    <TableView fx:id="tableNotes"
+               layoutX="20" layoutY="110"
+               prefWidth="850" prefHeight="420">
+
+        <columns>
+            <TableColumn fx:id="colMatiere" text="Matière" prefWidth="280"/>
+            <TableColumn fx:id="colNClass" text="Note Classe" prefWidth="130"/>
+            <TableColumn fx:id="colNExem" text="Note Examen" prefWidth="130"/>
+            <TableColumn fx:id="colCoeff" text="Coeff" prefWidth="120"/>
+            <TableColumn fx:id="colMoyenne" text="Moyenne" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+    <!-- ====== RÉSULTATS ====== -->
+
+    <Label text="Moyenne Générale :" layoutX="20" layoutY="550"/>
+    <Label fx:id="lblMoyenne" text="--" layoutX="150" layoutY="550"/>
+
+    <Label text="Rang :" layoutX="280" layoutY="550"/>
+    <Label fx:id="lblRang" text="-- / --" layoutX="330" layoutY="550"/>
+
+    <!-- ====== BOUTON PDF ====== -->
+
+    <Button text="Exporter en PDF"
+            layoutX="720" layoutY="540"
+            prefWidth="150"
+            onAction="#exporterPDF"/>
+
+</AnchorPane>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ton.package.TonController"
+            prefWidth="900" prefHeight="500">
+
+    <!-- Formulaire organisé dans un GridPane -->
+    <GridPane layoutX="350.0" layoutY="100.0" hgap="20" vgap="15">
+        <columnConstraints>
+            <ColumnConstraints minWidth="120" />
+            <ColumnConstraints minWidth="160" />
+            <ColumnConstraints minWidth="120" />
+            <ColumnConstraints minWidth="200" />
+        </columnConstraints>
+
+        <!-- Ligne 1 -->
+        <Label text="Jour :" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+        <ComboBox fx:id="cbJour" prefWidth="150" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Matière :" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+        <ComboBox fx:id="cbMatiere" prefWidth="200" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+        <!-- Ligne 2 -->
+        <Label text="Début :" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+        <ComboBox fx:id="cbHeureDebut" prefWidth="150" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Professeur :" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+        <ComboBox fx:id="cbProfesseur" prefWidth="200" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+        <!-- Ligne 3 -->
+        <Label text="Fin :" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+        <ComboBox fx:id="cbHeureFin" prefWidth="150" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Classe :" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+        <ComboBox fx:id="cbClasse" prefWidth="200" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+        <!-- Boutons -->
+        <Button text="➕ Ajouter"
+                onAction="#ajouterEmploi"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white;"
+                prefWidth="120"
+                GridPane.rowIndex="0" GridPane.columnIndex="4"/>
+
+        <Button text="✏ Modifier"
+                onAction="#modifierEmploi"
+                style="-fx-background-color: #FFC107; -fx-text-fill: black;"
+                prefWidth="120"
+                GridPane.rowIndex="1" GridPane.columnIndex="4"/>
+
+        <Button text="🗑 Supprimer"
+                onAction="#supprimerEmploi"
+                style="-fx-background-color: #F44336; -fx-text-fill: white;"
+                prefWidth="120"
+                GridPane.rowIndex="2" GridPane.columnIndex="4"/>
+    </GridPane>
+
+</AnchorPane>
