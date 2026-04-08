@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.NiveauController"
+            prefWidth="600" prefHeight="400">
+
+    <!-- Formulaire -->
+    <Label text="Nom du Niveau :" layoutX="50" layoutY="50"/>
+    <TextField fx:id="txtNiveau" layoutX="180" layoutY="45" prefWidth="200" promptText="ex: 6ème"/>
+
+    <Button text="Ajouter Niveau"
+            layoutX="180" layoutY="90"
+            style="-fx-background-color: green; -fx-text-fill: white;"
+            onAction="#ajouterNiveau"/>
+
+    <!-- Table des niveaux existants -->
+    <TableView fx:id="tableNiveaux" layoutX="50" layoutY="150" prefWidth="500" prefHeight="200">
+        <columns>
+            <TableColumn fx:id="colNom" text="Nom du Niveau" prefWidth="480"/>
+        </columns>
+    </TableView>
+
+</AnchorPane>

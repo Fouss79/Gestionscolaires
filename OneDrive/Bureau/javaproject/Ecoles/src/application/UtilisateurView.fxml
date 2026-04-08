@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="657.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UtilisateurController">
+
+    <!-- Formulaire -->
+    <TextField fx:id="txtUsername" layoutX="240.0" layoutY="20.0" prefWidth="200" promptText="Nom utilisateur" />
+    <TextField fx:id="txtPassword" layoutX="240.0" layoutY="60.0" prefWidth="200" promptText="Mot de passe" />
+    <ComboBox fx:id="comboRole" layoutX="240.0" layoutY="100.0" prefWidth="200" />
+    <Button layoutX="240.0" layoutY="140.0" onAction="#handleAjouterUtilisateur" text="Ajouter Utilisateur" />
+    <Label fx:id="lblMessage" layoutX="20" layoutY="180" prefWidth="300" />
+
+    <!-- Table -->
+    <TableView fx:id="tableUsers" layoutX="455.0" layoutY="44.0" prefHeight="360" prefWidth="330">
+        <columns>
+            <TableColumn fx:id="colId" prefWidth="50" text="ID" />
+            <TableColumn fx:id="colUsername" prefWidth="140" text="Nom" />
+            <TableColumn fx:id="colRole" prefWidth="140" text="Rôle" />
+        </columns>
+    </TableView>
+   <Pane prefHeight="657.0" prefWidth="233.0" style="-fx-background-color: #2f4f4f;">
+      <children>
+         <Button layoutX="4.0" layoutY="129.0" onAction="#retourAccueil" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2C3E50;" text="TABLEAU DE BORD" textFill="#f4ecec">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnClasse1" layoutX="3.0" layoutY="169.0" onAction="#openClasse" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2f4f4f;" text="GESTION DES CLASSES" textFill="#fbf6f6">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnEleve1" layoutX="4.0" layoutY="208.0" onAction="#openEleve" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2f4f4f;" text="GESTION DES ELEVES" textFill="#ebede8">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnMatiere1" layoutX="4.0" layoutY="248.0" onAction="#openMatiere" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2f4f4f;" text="GESTION DES MATIERES" textFill="#efe6e6">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnNote1" layoutX="4.0" layoutY="288.0" onAction="#openNote" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2f4f4f;" text="GESTION DES NOTES" textFill="#f6f0f0">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnEnseignant1" layoutX="4.0" layoutY="328.0" onAction="#openEnseignant" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2f4f4f;" text="GESTON DES ENSEIGNANTS" textFill="#efe9e9">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnTransaction1" layoutX="4.0" layoutY="447.0" onAction="#openTransaction" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2f4f4f;" text="GESTION DES FINANCES" textFill="#ede6e6">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnAnneescolaire" layoutX="4.0" layoutY="408.0" onAction="#openAnneescolaire" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2f4f4f;" text="ANNNEE SCOLAIRE" textFill="#f4ecec">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnUtilisateur" layoutX="4.0" layoutY="367.0" onAction="#openUtilisateur" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2f4f4f;" text="UTILISATEUR" textFill="#efefef">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btnHabilitation" layoutX="4.0" layoutY="488.0" onAction="#openHabilitation" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2f4f4f;" text="HABILITATION" textFill="#f4f3f3">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <FontAwesomeIcon fill="white" glyphName="UNIVERSITY" layoutX="14.0" layoutY="190.0" size="16" text="" />
+         <FontAwesomeIcon fill="#fdf4f4" glyphName="USER" layoutX="17.0" layoutY="228.0" size="16" />
+         <FontAwesomeIcon fill="#f2eded" glyphName="FILE_TEXT" layoutX="17.0" layoutY="308.0" size="16" />
+         <FontAwesomeIcon fill="#f4ecec" glyphName="BOOK" layoutX="16.0" layoutY="268.0" size="16" />
+         <FontAwesomeIcon fill="#f4ecec" glyphName="USERS" layoutX="14.0" layoutY="348.0" size="16" />
+         <FontAwesomeIcon fill="#ebeaea" glyphName="BANK" layoutX="13.0" layoutY="467.0" size="16" />
+         <FontAwesomeIcon fill="#efeaea" glyphName="FILE_TEXT" layoutX="15.0" layoutY="429.0" size="16" />
+         <FontAwesomeIcon fill="#fbf3f3" glyphName="CALENDAR" layoutX="15.0" layoutY="388.0" size="16" />
+         <FontAwesomeIcon fill="#ede9e9" glyphName="CALCULATOR" layoutX="16.0" layoutY="506.0" size="16" />
+         <FontAwesomeIcon fill="#fbf7f7" glyphName="TACHOMETER" layoutX="15.0" layoutY="149.0" size="16" />
+         <Button fx:id="btnDeconnexion" layoutX="1.0" layoutY="561.0" onAction="#handleLogout" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color:#e74c3c; -fx-text-fill:white;" text="DECONNEXION" textFill="#f4f3f3">
+            <font>
+               <Font name="System Bold Italic" size="12.0" />
+            </font>
+         </Button>
+         <FontAwesomeIcon fill="white" glyphName="UNIVERSITY" layoutX="91.0" layoutY="57.0" selectionFill="#295b8d" size="40" text="">
+            <font>
+               <Font size="39.0" />
+            </font>
+         </FontAwesomeIcon>
+         <Text fill="#f6f2f2" layoutX="80.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LPEMK">
+            <font>
+               <Font name="System Bold" size="20.0" />
+            </font>
+         </Text>
+         <FontAwesomeIcon fill="#ede9e9" glyphName="SIGN_OUT" layoutX="17.0" layoutY="583.0" size="20" />
+      </children>
+   </Pane>
+
+</AnchorPane>

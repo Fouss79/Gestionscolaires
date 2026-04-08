@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.FirstAdminController"
+            prefWidth="400" prefHeight="300"
+            style="-fx-background-color: #ecf0f1;">
+
+    <!-- Titre -->
+    <Label text="Création du premier administrateur"
+           layoutX="20" layoutY="20"
+           style="-fx-font-size:18px; -fx-font-weight:bold;"/>
+
+    <!-- Nom utilisateur -->
+    <TextField fx:id="txtUsername" layoutX="20" layoutY="70" prefWidth="360"
+               promptText="Nom utilisateur"/>
+
+    <!-- Mot de passe -->
+    <PasswordField fx:id="txtPassword" layoutX="20" layoutY="120" prefWidth="360"
+                   promptText="Mot de passe"/>
+
+    <!-- Message d'erreur -->
+    <Label fx:id="lblMessage" layoutX="20" layoutY="160" prefWidth="360"
+           style="-fx-text-fill: red;"/>
+
+    <!-- Bouton créer -->
+    <Button fx:id="btnCreate" text="Créer Administrateur"
+            layoutX="20" layoutY="200" prefWidth="360"
+            style="-fx-background-color:#3498db; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:10;"
+            onAction="#handleCreateAdmin"
+            onMouseEntered="#hoverBtn"
+            onMouseExited="#leaveBtn"/>
+</AnchorPane>

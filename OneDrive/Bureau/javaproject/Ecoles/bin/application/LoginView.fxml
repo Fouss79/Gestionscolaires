@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="657.0" prefWidth="1283.0"
+            xmlns="http://javafx.com/javafx/22.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="application.LoginController"
+            style="-fx-background-color: linear-gradient(to right,#2c3e50,#4ca1af);">
+
+    <VBox layoutX="420" layoutY="80"
+          prefWidth="420" prefHeight="500"
+          alignment="CENTER"
+          spacing="15"
+          style="-fx-background-color:white;
+                 -fx-background-radius:20;
+                 -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.25),30,0,0,5);">
+
+        <padding>
+            <Insets top="30" right="40" bottom="30" left="40"/>
+        </padding>
+
+        <!-- LOGO -->
+        <Label text="🏫 LPEMK"
+               style="-fx-font-size:28px;
+                      -fx-font-weight:bold;
+                      -fx-text-fill:#2c3e50;"/>
+
+        <Label text="Connexion à votre compte"
+               style="-fx-text-fill:gray;"/>
+
+        <!-- USERNAME -->
+        <TextField fx:id="txtUsername"
+                   promptText="Nom utilisateur"
+                   prefHeight="40"
+                   style="-fx-background-radius:10;
+                          -fx-border-radius:10;
+                          -fx-border-color:#ddd;"/>
+
+        <!-- PASSWORD + EYE -->
+        <HBox spacing="5">
+            <PasswordField fx:id="txtPassword"
+                           promptText="Mot de passe"
+                           prefHeight="40"
+                           HBox.hgrow="ALWAYS"
+                           style="-fx-background-radius:10;
+                                  -fx-border-radius:10;
+                                  -fx-border-color:#ddd;"/>
+
+            <Button text="👁"
+                    onAction="#togglePassword"
+                    style="-fx-background-color:#ecf0f1;
+                           -fx-background-radius:10;"/>
+        </HBox>
+
+        <!-- LOGIN BTN -->
+        <Button fx:id="btnLogin"
+                text="SE CONNECTER"
+                onAction="#handleLogin"
+                onMouseEntered="#hoverBtn"
+                onMouseExited="#leaveBtn"
+                prefWidth="260"
+                prefHeight="40"
+                style="-fx-background-color:#3498db;
+                       -fx-text-fill:white;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:10;"/>
+
+        <Label fx:id="lblMessage"
+               style="-fx-text-fill:red;"/>
+
+    </VBox>
+
+</AnchorPane>

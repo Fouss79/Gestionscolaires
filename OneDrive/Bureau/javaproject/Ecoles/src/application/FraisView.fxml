@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500" prefWidth="800" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FraisController">
+
+    <children>
+
+        <!-- Titre -->
+        <Label style="-fx-font-size:20px; -fx-font-weight:bold;" text="Gestion des Frais " AnchorPane.leftAnchor="300" AnchorPane.topAnchor="20" />
+
+        <!-- Motif -->
+        <Label layoutX="150.0" layoutY="56.333333333333336" text="Motif :" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="56.333333333333336" />
+
+        <ComboBox fx:id="cbMotif" layoutX="220.0" layoutY="51.666666666666664" prefWidth="250" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="51.666666666666664" />
+
+        <!-- Montant -->
+        <Label text="Montant :" AnchorPane.leftAnchor="150" AnchorPane.topAnchor="130" />
+
+        <TextField fx:id="txtMontant" prefWidth="250" promptText="Entrer le montant" AnchorPane.leftAnchor="220" AnchorPane.topAnchor="125" />
+
+        <!-- Bouton -->
+        <Button onAction="#ajouterFrais" prefWidth="120" text="Enregistrer" AnchorPane.leftAnchor="350" AnchorPane.topAnchor="170" />
+
+        <!-- TableView -->
+        <TableView fx:id="tableTarifs" prefHeight="250" prefWidth="646.0" AnchorPane.leftAnchor="50" AnchorPane.topAnchor="230">
+
+            <columns>
+                <TableColumn fx:id="colMotif" prefWidth="144.00002670288086" text="Motif" />
+
+                <TableColumn fx:id="colAnnee" prefWidth="126.00004577636719" text="Année scolaire" />
+
+                <TableColumn fx:id="colMontant" prefWidth="170.00006103515625" text="Montant" />
+            <TableColumn fx:id="colNiveau" prefWidth="200.6665954589844" text="Niveau" />
+            </columns>
+
+        </TableView>
+      <ComboBox fx:id="cbNiveau" layoutX="220.0" layoutY="90.66666666666666" prefWidth="250" />
+      <Label layoutX="152.0" layoutY="92.33333333333334" text="Niveau:" />
+
+    </children>
+</AnchorPane>

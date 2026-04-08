@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="657.0" prefWidth="1283.0" style="-fx-background-image: url('/ressources/images/classe1.jpg'); -fx-background-size: cover; -fx-background-position: center;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PaiementEnseignantController">
+
+    <!-- ======================= TITRE ======================= -->
+    <Text layoutX="280" layoutY="40" style="-fx-font-size:22px;                  -fx-font-weight:bold;                  -fx-fill:#2C3E50;" text="GESTION DES PAIEMENTS ENSEIGNANTS" />
+
+    <!-- ======================= CARTE 1 : INFOS ======================= -->
+    <Pane layoutX="260" layoutY="70" prefHeight="170" prefWidth="980" style="-fx-background-color:white;                  -fx-background-radius:12;                  -fx-effect:dropshadow(gaussian, rgba(0,0,0,0.12),15,0,0,5);">
+
+        <Label layoutX="25" layoutY="20" style="-fx-font-size:16px; -fx-font-weight:bold; -fx-text-fill:#34495E;" text="Informations Enseignant" />
+
+        <Label layoutX="30" layoutY="65" text="Matière :" />
+        <ComboBox fx:id="comboMatiere" layoutX="120" layoutY="60" onAction="#handleMatiereSelected" prefWidth="200" />
+
+        <Label layoutX="380" layoutY="65" text="Enseignant :" />
+        <ComboBox fx:id="comboEnseignant" layoutX="480" layoutY="60" onAction="#handleEnseignantSelected" prefWidth="220" />            
+
+        <Label layoutX="30" layoutY="115" text="Nom :" />
+        <TextField fx:id="txtNom" editable="false" layoutX="120" layoutY="110" prefWidth="160" />
+
+        <Label layoutX="320" layoutY="115" text="Prénom :" />
+        <TextField fx:id="txtPrenom" editable="false" layoutX="390" layoutY="110" prefWidth="160" />
+        <Label layoutX="600" layoutY="115" text="Motif :" />
+        <ComboBox fx:id="comboMotif" layoutX="660" layoutY="110" onAction="#handleMotifSelected" prefWidth="160" />
+                  <TextField fx:id="txtType" layoutX="660" layoutY="110" />
+                  
+    </Pane>
+
+    <!-- ======================= CARTE 2 : CALCUL ======================= -->
+    <Pane layoutX="260" layoutY="260" prefHeight="220" prefWidth="980" style="-fx-background-color:white;                  -fx-background-radius:12;                  -fx-effect:dropshadow(gaussian, rgba(0,0,0,0.12),15,0,0,5);">
+
+        <Label layoutX="25" layoutY="20" style="-fx-font-size:16px; -fx-font-weight:bold; -fx-text-fill:#34495E;" text="Calcul et Paiement" />
+
+        <Label layoutX="30" layoutY="60" text="Période :" />
+        <ComboBox fx:id="comboMois" layoutX="110" layoutY="55" onAction="#handleMoisSelected" prefWidth="100" />
+        <ComboBox fx:id="comboAnnee" layoutX="220" layoutY="55" prefWidth="100" />
+
+        <Label layoutX="380" layoutY="60" text="Total Heures :" />
+        <TextField fx:id="txtTotalHeure" editable="false" layoutX="480" layoutY="55" prefWidth="100" />
+
+        <Label layoutX="620" layoutY="60" text="Tarif :" />
+        <TextField fx:id="txtTarif" layoutX="670" layoutY="55" prefWidth="100" />
+
+        <Label layoutX="30" layoutY="110" text="Montant Total :" />
+        <TextField fx:id="txtMontantTotal" layoutX="150" layoutY="105" prefWidth="140" />
+
+        <Label layoutX="330" layoutY="110" text="Montant Payé :" />
+        <TextField fx:id="txtMontantPaye" layoutX="450" layoutY="105" prefWidth="140" />
+
+        <Label layoutX="620" layoutY="110" text="Reste :" />
+        <TextField fx:id="txtReste" layoutX="680" layoutY="105" prefWidth="140" />
+
+        <Button layoutX="200" layoutY="160" onAction="#handleChargerPaiement" prefWidth="140" style="-fx-background-color:#3498db; -fx-text-fill:white; -fx-background-radius:8;" text="Charger" />
+
+        <Button layoutX="360" layoutY="160" onAction="#handleSavePaiement" prefWidth="140" style="-fx-background-color:#2ecc71; -fx-text-fill:white; -fx-background-radius:8;" text="Enregistrer" />
+
+        <Button layoutX="520" layoutY="160" onAction="#handleGenererRecu" prefWidth="140" style="-fx-background-color:#f39c12; -fx-text-fill:white; -fx-background-radius:8;" text="Reçu" />
+
+        <Button layoutX="680" layoutY="160" onAction="#handleGenererPDF" prefWidth="140" style="-fx-background-color:#e74c3c; -fx-text-fill:white; -fx-background-radius:8;" text="PDF" />
+    </Pane>
+    <Pane prefHeight="657.0" prefWidth="233.0" style="-fx-background-color: #2f4f4f;">
+         <children>
+            <Button layoutX="4.0" layoutY="218.0" onAction="#handleRapport" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2f4f4f;" text="RAPPORTS FINANCIERS" textFill="#f4ecec">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <FontAwesomeIcon fill="#fdf4f4" glyphName="USER" layoutX="95.0" layoutY="56.0" size="44" />
+            <FontAwesomeIcon fill="#f2eded" glyphName="FILE_TEXT" layoutX="17.0" layoutY="242.0" size="16" />
+            <Text fill="#f6f2f2" layoutX="55.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COMPTABLE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Button layoutX="5.0" layoutY="176.0" onAction="#openScolarite" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2f4f4f;" text="SCOLARITE" textFill="#ede6e6">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="4.0" layoutY="134.0" onAction="#OpenPaiement" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2f4f4f;" text="PAIEMENT ENSEIGNANTS" textFill="#f4ecec">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <FontAwesomeIcon fill="#ebeaea" glyphName="BANK" layoutX="18.0" layoutY="199.0" size="16" />
+            <FontAwesomeIcon fill="#f4ecec" glyphName="USERS" layoutX="15.0" layoutY="157.0" size="16" />
+            <Button layoutX="6.0" layoutY="257.0" onAction="#handleRapportScolaire" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2f4f4f;" text="RAPPORTS SCOLARITE" textFill="#f4ecec">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <FontAwesomeIcon fill="#f2eded" glyphName="FILE_TEXT" layoutX="19.0" layoutY="277.0" size="16" />
+         </children>
+      </Pane>
+      <Button fx:id="btnDeconnexion" layoutX="3.0" layoutY="575.0" onAction="#handleLogout" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color:#e74c3c; -fx-text-fill:white;" text="DECONNEXION" textFill="#f4f3f3">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <FontAwesomeIcon fill="#ede9e9" glyphName="SIGN_OUT" layoutX="35.0" layoutY="601.0" size="20" />
+    
+        
+
+    <!-- ======================= CARTE 3 : HISTORIQUE ======================= -->
+    <Pane layoutX="260" layoutY="500" prefHeight="140" prefWidth="980" style="-fx-background-color:white;                  -fx-background-radius:12;                  -fx-effect:dropshadow(gaussian, rgba(0,0,0,0.12),15,0,0,5);">
+
+        <Label layoutX="25" layoutY="15" style="-fx-font-size:16px; -fx-font-weight:bold; -fx-text-fill:#34495E;" text="Historique des transactions" />
+
+        <TableView fx:id="tableTransactions" layoutX="20" layoutY="45" prefHeight="80" prefWidth="940">
+
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="60" text="ID" />
+                <TableColumn fx:id="colPaiementId" prefWidth="100" text="Paiement ID" />
+                <TableColumn fx:id="colMontant" prefWidth="120" text="Montant" />
+                <TableColumn fx:id="colDate" prefWidth="120" text="Date" />
+                <TableColumn fx:id="colModepaiement" prefWidth="120" text="Mode" />
+                <TableColumn fx:id="colCommentaire" prefWidth="200" text="Commentaire" />
+                <TableColumn fx:id="colEnseignant_id" prefWidth="100" text="Enseignant ID" />
+                
+            </columns>
+
+        </TableView>
+    </Pane>
+   
+</AnchorPane>

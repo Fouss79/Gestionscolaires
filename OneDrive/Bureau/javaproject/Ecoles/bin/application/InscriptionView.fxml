@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600" prefWidth="800"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="application.InscriptionController">
+
+    <Label layoutX="200" layoutY="20" style="-fx-font-size:18px; -fx-font-weight:bold;" text="INSCRIPTION DES ÉLÈVES" />
+
+    <Label layoutX="80.0" layoutY="49.0" text="Numéro matricule :" />
+    <TextField fx:id="txtMatricule" layoutX="200.0" layoutY="44.0" prefWidth="300" />
+
+    <Label layoutX="80" layoutY="80" text="Élève :" />
+    <ComboBox fx:id="cbEleve" layoutX="200" layoutY="75" prefWidth="300" />
+
+    <Label layoutX="80" layoutY="130" text="Classe :" />
+    <ComboBox fx:id="cbClasse" layoutX="200" layoutY="125" prefWidth="300" />
+
+    <Label layoutX="80" layoutY="180" text="Année scolaire :" />
+    <ComboBox fx:id="cbAnnee" layoutX="200" layoutY="175" prefWidth="300" />
+
+    <Button layoutX="200" layoutY="240" onAction="#inscrireEleve" prefWidth="120" text="INSCRIRE" />
+    <Button layoutX="350" layoutY="240" onAction="#clearForm" prefWidth="150" text="RÉINITIALISER" />
+
+    <Label text="Classe :" layoutX="80" layoutY="300"/>
+    <ComboBox fx:id="cbClasseFiltre" layoutX="150" layoutY="295" prefWidth="200"/>
+
+    <Label text="Année :" layoutX="380" layoutY="300"/>
+    <ComboBox fx:id="cbAnneeFiltre" layoutX="440" layoutY="295" prefWidth="200"/>
+
+    <Button text="Afficher" layoutX="670" layoutY="295" onAction="#chargerInscriptions"/>
+
+    <TableView fx:id="tableInscriptions" layoutX="80" layoutY="340" prefWidth="700" prefHeight="200">
+        <columns>
+            <TableColumn fx:id="colMatricule" text="Matricule" prefWidth="120"/>
+            <TableColumn fx:id="colNom" text="Nom" prefWidth="160"/>
+            <TableColumn fx:id="colPrenom" text="Prénom" prefWidth="160"/>
+            <TableColumn fx:id="colSexe" text="Sexe" prefWidth="80"/>
+            <TableColumn fx:id="colClasse" text="Classe" prefWidth="120"/>
+            <TableColumn fx:id="colAnnee" text="Année scolaire" prefWidth="120"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="lblStats" layoutX="80" layoutY="560" style="-fx-font-weight:bold"/>
+    <Button text="Imprimer fiche PDF"
+            layoutX="500" layoutY="580"
+            onAction="#imprimerPDF"
+            style="-fx-background-color:#27AE60; -fx-text-fill:white;"/>
+
+</AnchorPane>

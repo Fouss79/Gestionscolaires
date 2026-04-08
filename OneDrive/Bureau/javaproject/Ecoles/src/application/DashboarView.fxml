@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            xmlns="http://javafx.com/javafx/22.0.1"
+            fx:controller="application.DashboardControler"
+            prefWidth="400" prefHeight="300">
+
+    <Button fx:id="menuUtilisateur" text="Gestion Utilisateurs" layoutX="50" layoutY="50"/>
+    <Button fx:id="menuEleve" text="Gestion Élèves" layoutX="50" layoutY="100"/>
+    <Button fx:id="menuNote" text="Gestion Notes" layoutX="50" layoutY="150"/>
+
+</AnchorPane>
+

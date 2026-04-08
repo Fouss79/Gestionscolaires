@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="657.0" prefWidth="1283.0" style="-fx-background-image: url('/ressources/images/classe1.jpg'); -fx-background-size: cover; -fx-background-position: center;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PaiementController">
+
+    <children>
+    <ComboBox fx:id="comboAnnee" layoutX="808.0" layoutY="20.0" prefWidth="120" />
+    
+    <Label fx:id="lblTotalPaye" layoutX="248.0" layoutY="60.0" text="Total payé ce mois : 0 FCFA" />
+
+<Label fx:id="lblReste" layoutX="478.0" layoutY="60.0" text="Reste à payer : 0 FCFA" />
+
+<Label fx:id="lblNombre" layoutX="708.0" layoutY="60.0" text="Nombre enseignants payés : 0" />
+
+        <TextField fx:id="txtRecherche" layoutX="242.0" layoutY="20.0" prefWidth="200" promptText="Rechercher prof..." />
+
+        <ComboBox fx:id="comboStatut" layoutX="468.0" layoutY="20.0" prefWidth="150" />
+
+        <ComboBox fx:id="comboMois" layoutX="638.0" layoutY="20.0" prefWidth="150" />
+
+        <TableView fx:id="tablePaiement" layoutX="248.0" layoutY="95.0" prefHeight="475.0" prefWidth="923.0">
+
+            <columns>
+
+                <TableColumn fx:id="colNom" prefWidth="100" text="Nom" />
+                <TableColumn fx:id="colPrenom" prefWidth="100" text="Prénom" />
+                <TableColumn fx:id="colMotif" prefWidth="120" text="Motif" />
+                <TableColumn fx:id="colMois" prefWidth="90" text="Mois" />
+                <TableColumn fx:id="colTotal" prefWidth="90" text="Total" />
+                <TableColumn fx:id="colPaye" prefWidth="90" text="Payé" />
+                <TableColumn fx:id="colReste" prefWidth="90" text="Reste" />
+                <TableColumn fx:id="colStatut" prefWidth="100" text="Statut" />
+                <TableColumn fx:id="colVoir" prefWidth="80" text="Détail" />
+                <TableColumn fx:id="colRecu" prefWidth="80" text="Reçu" />
+
+            </columns>
+
+        </TableView>
+      <Pane prefHeight="657.0" prefWidth="233.0" style="-fx-background-color: #2f4f4f;">
+         <children>
+            <Button layoutX="4.0" layoutY="218.0" onAction="#handleRapport" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2f4f4f;" text="RAPPORTS FINANCIERS" textFill="#f4ecec">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <FontAwesomeIcon fill="#fdf4f4" glyphName="USER" layoutX="95.0" layoutY="56.0" size="44" />
+            <FontAwesomeIcon fill="#f2eded" glyphName="FILE_TEXT" layoutX="17.0" layoutY="242.0" size="16" />
+            <Text fill="#f6f2f2" layoutX="55.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COMPTABLE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Button layoutX="5.0" layoutY="176.0" onAction="#openScolarite" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2f4f4f;" text="SCOLARITE" textFill="#ede6e6">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="4.0" layoutY="134.0" onAction="#OpenPaiement" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2f4f4f;" text="PAIEMENT ENSEIGNANTS" textFill="#f4ecec">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <FontAwesomeIcon fill="#ebeaea" glyphName="BANK" layoutX="18.0" layoutY="199.0" size="16" />
+            <FontAwesomeIcon fill="#f4ecec" glyphName="USERS" layoutX="15.0" layoutY="157.0" size="16" />
+            <Button layoutX="6.0" layoutY="257.0" onAction="#handleRapportScolaire" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color: #2f4f4f;" text="RAPPORTS SCOLARITE" textFill="#f4ecec">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <FontAwesomeIcon fill="#f2eded" glyphName="FILE_TEXT" layoutX="19.0" layoutY="277.0" size="16" />
+         </children>
+      </Pane>
+      <Button fx:id="btnDeconnexion" layoutX="3.0" layoutY="575.0" onAction="#handleLogout" prefHeight="30.0" prefWidth="227.0" style="-fx-background-color:#e74c3c; -fx-text-fill:white;" text="DECONNEXION" textFill="#f4f3f3">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <FontAwesomeIcon fill="#ede9e9" glyphName="SIGN_OUT" layoutX="35.0" layoutY="601.0" size="20" />
+
+    </children>
+
+</AnchorPane>
